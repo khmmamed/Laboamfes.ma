@@ -4,14 +4,48 @@ import { LabFesState, SliderState } from '../store';
 
 import SliderItem1 from '../components/slider/SliderItem1'
 import SliderItem2 from '../components/slider/SliderItem2'
+import { bindActionCreators, Dispatch } from 'redux';
+
+import * as actions from '../store/actions/sliderActions'
 
 export interface SliderAppProps {
+
 }
 
-type Props = SliderAppProps ;
+interface dispatchProps {
+  dispatch : Dispatch
+}
+
+type Props = SliderAppProps & SliderState & dispatchProps;
 
 class SliderApp extends React.Component<Props> {
+
+  constructor(props : Props){
+    super(props);
+  }
+
+  componentDidMount() {
+
+  }
+  switchAuto(){
+    setTimeout(()=>this.props.dispatch({type: 'CHANGE_SLIDE', payload: 'next'}), 2000)
+  }
   public render() {
+
+    setTimeout(()=>{
+      if(this.props.currSlide === 0)
+        this.props.dispatch({type: 'CHANGE_SLIDE'})
+      else {
+        this.props.dispatch({type: 'CHANGE_SLIDE_HIDDEN'})
+      }
+    }, 6000)
+
+
+    let sliderOffset = this.props.currSlide * this.props.sliderWidth;
+    let sliderOptions = {
+      transform: `translate3d(${-sliderOffset}px, 0px, 0px)`,
+      transitionDuration: `${this.props.transitionDuration}ms`
+    };
     return (
       <div className="slider-container">
         <div className="container">
@@ -24,7 +58,7 @@ class SliderApp extends React.Component<Props> {
             </span>
           </div>
         </div>
-        <ul className="slider">
+        <ul style={sliderOptions} className="slider">
           <SliderItem1 />
           <SliderItem2 />
         </ul>
@@ -39,5 +73,6 @@ const mapState2Props = ({ slider }: LabFesState) => ({
   sliderWidth: slider.sliderWidth,
   hiddenChange: slider.hiddenChange
 })
+
 
 export default connect(mapState2Props)(SliderApp);

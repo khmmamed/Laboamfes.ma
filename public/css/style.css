@@ -66,7 +66,7 @@ header {
 	width: 61px;
 	height: 69px;
 	margin-right: 5px;
-	background: url("../img/logo.png") no-repeat;
+	background: url("../images/logo.svg") no-repeat;
 }
 
 .logo-text {
@@ -83,7 +83,7 @@ header {
 
 .logo-text-part2 {
 	font-weight: bold;
-	color: #18cfab;
+	color: #a6d230;
 }
 
 .nav-main {
@@ -212,7 +212,7 @@ header {
 }
 
 .text-highlight {
-	color: #18cfab;
+	color: #a6d230;
 }
 
 .slider-text2 {
@@ -277,7 +277,7 @@ header {
 	font-size: 13px;
 	font-weight: bold;
 	color: #ffffff;
-	background-color: #18cfab;
+	background-color: #a6d230;
 	border: none;
 	border-radius: 5px;
 	box-shadow: 0 -5px 0 0 #ffffff;
@@ -288,7 +288,7 @@ header {
 }
 
 .btn:hover {
-	background-color: #00cbf6;
+	background-color: #d5281f;
 	transition:all 0.5s;
 }
 

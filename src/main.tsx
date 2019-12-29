@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { Router, Switch, Route,  } from 'react-router';
 import { History } from "history";
 import Home from './view/Home'
+import Header from './view/Header'
 
 interface MainProps {
     store: Store<LabFesState>;
