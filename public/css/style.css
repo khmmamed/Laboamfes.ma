@@ -362,19 +362,19 @@ header {
 }
 
 .home-options-item:nth-child(1) > .option-item {
-	background: url("../img/options-icon1.png") no-repeat center;
+	background: url("../icon/appointment.svg") no-repeat center;
 }
 
 .home-options-item:nth-child(2) > .option-item {
-	background: url("../img/options-icon2.png") no-repeat center;
+	background: url("../icon/blood-count-test.svg") no-repeat center;
 }
 
 .home-options-item:nth-child(3) > .option-item {
-	background: url("../img/options-icon3.png") no-repeat center;
+	background: url("../icon/first-aid-kit.svg") no-repeat center;
 }
 
 .home-options-item:nth-child(4) > .option-item {
-	background: url("../img/options-icon4.png") no-repeat center;
+	background: url("../icon/whatsapp.svg") no-repeat center;
 }
 
 .option-item {
