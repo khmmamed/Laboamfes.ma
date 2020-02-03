@@ -4,6 +4,9 @@ import { LabFesState, SliderState } from '../store';
 
 import SliderItem1 from '../components/slider/SliderItem1'
 import SliderItem2 from '../components/slider/SliderItem2'
+import SliderItem3 from '../components/slider/SliderItem3'
+import SliderItem4 from '../components/slider/SliderItem4'
+import SliderItem5 from '../components/slider/SliderItem5'
 import { bindActionCreators, Dispatch } from 'redux';
 
 import * as actions from '../store/actions/sliderActions'
@@ -35,6 +38,15 @@ class SliderApp extends React.Component<Props> {
     setTimeout(()=>{
       if(this.props.currSlide === 0)
         this.props.dispatch({type: 'CHANGE_SLIDE'})
+      else if(this.props.currSlide === 1){
+        this.props.dispatch({type: 'CHANGE_SLIDE'})
+      }
+      else if(this.props.currSlide === 2){
+        this.props.dispatch({type: 'CHANGE_SLIDE'})
+      }
+      else if(this.props.currSlide === 3){
+        this.props.dispatch({type: 'CHANGE_SLIDE'})
+      }
       else {
         this.props.dispatch({type: 'CHANGE_SLIDE_HIDDEN'})
       }
@@ -61,6 +73,9 @@ class SliderApp extends React.Component<Props> {
         <ul style={sliderOptions} className="slider">
           <SliderItem1 />
           <SliderItem2 />
+          <SliderItem3 />
+          <SliderItem4 />
+          <SliderItem5 />
         </ul>
       </div>
     );

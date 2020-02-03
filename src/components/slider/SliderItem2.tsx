@@ -24,12 +24,12 @@ export default class SliderItem2 extends React.Component<SliderItem2Props> {
             <li className="slider-item" style={sliderItemBg} >
                 <div className="slider-content">
                     <div className="container slider-content-container">
-                        <h1 className="slider-text1">#3 The ham is <span className="text-highlight">a psd template</span></h1>
-                        <h2 className="slider-text2">We are professionals</h2>
-                        <p className="slider-text3">Zril mandamus eos ne, sed audire facilisis ex</p>
+                        <h1 className="slider-text1">#2 <span className="text-highlight">Notre Assurance de Qualite</span></h1>
+                        <h2 className="slider-text2">Nos Automates Biologiques</h2>
+                        <p className="slider-text3">Nous disposons des derniers Technologies des Automates</p>
                         <div className="slider-btn-container">
-                            <ScrollLink className="btn home-btn" to="work" {...scrollOptions}>Explore now</ScrollLink>
-                            <ScrollLink className="btn home-btn" to="contact" {...scrollOptions}>Purchase now</ScrollLink>
+                            <ScrollLink className="btn home-btn" to="PourQuoi-Nous" {...scrollOptions}>Explore Nos Automates</ScrollLink>
+                            <ScrollLink className="btn home-btn" to="contact" {...scrollOptions}>Rendez-Vous</ScrollLink>
                         </div>
                     </div>
                 </div>

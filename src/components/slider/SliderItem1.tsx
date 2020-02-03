@@ -25,11 +25,11 @@ export default class SliderItem1 extends React.Component<SliderItem1Props> {
                 <div className="slider-content">
                     <div className="container slider-content-container">
                         <h1 className="slider-text1">#1 <span className="text-highlight">Notre Approche Qualite</span></h1>
-                        <h2 className="slider-text2">We are professionals</h2>
-                        <p className="slider-text3">Zril mandamus eos ne, sed audire facilisis ex</p>
+                        <h2 className="slider-text2">Laboratiore Analyses Medicales Fes</h2>
+                        <p className="slider-text3">Bienvenue A Notre Laboratoire : Boulevard Biranzaane, Lot 8 Res Nour, Bureau N°11 Ex: Moulin Idrissia ) Atlas, Fès 30000</p>
                         <div className="slider-btn-container">
-                            <ScrollLink className="btn home-btn" to="work" {...scrollOptions}>Explore now</ScrollLink>
-                            <ScrollLink className="btn home-btn" to="contact" {...scrollOptions}>Purchase now</ScrollLink>
+                            <ScrollLink className="btn home-btn" to="ContactUs" {...scrollOptions}>Localiser Le Laboratoire</ScrollLink>
+                            <ScrollLink className="btn home-btn" to="contact" {...scrollOptions}>Prendre Un Rendez-Vous</ScrollLink>
                         </div>
                     </div>
                 </div>

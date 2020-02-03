@@ -1,0 +1,22 @@
+{
+  "name": "react-wrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "files": [
+    "dist",
+    "index.d.ts",
+    "package.json",
+    "readme.md"
+  ],
+  "author": "khm@med",
+  "license": "MIT",
+  "devDependencies": {
+    "styled-components": "^5.0.0"
+  }
+}

@@ -8,6 +8,9 @@ import SliderReducer from './reducers/SliderReducer'
 
 //===> from saga middleware
 import { fork, all } from 'redux-saga/effects'
+import { AuthReducer } from '../components/authentification-redux-lib/src';
+import { AuthSaga } from '../components/authentification-redux-lib/src';
+import { AuthState } from '../components/authentification-redux-lib/src/types';
 
 
 // States declaration
@@ -21,10 +24,12 @@ export interface SliderState {
 export interface LabFesState {
   slider        : SliderState
   router        : RouterState
+  auth          : AuthState
 }
 
 export const createRootReducer = (history: History) =>
   combineReducers({
+    auth   : AuthReducer,
     slider : SliderReducer,
     router : connectRouter(history)
   });
@@ -32,6 +37,6 @@ export const createRootReducer = (history: History) =>
 export function* rootSaga() {
   yield all([
     
-    // fork()
+     fork(AuthSaga)
   ]);
 }
