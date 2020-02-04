@@ -1,0 +1,16 @@
+{
+  "name": "react-tables",
+  "version": "1.0.0",
+  "description": "react tables editable table data table basic table",
+  "main": "dist/index.js",
+  "types" : "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "table",
+    "react"
+  ],
+  "author": "khm@med",
+  "license": "MIT"
+}
