@@ -1,110 +1,75 @@
 import * as React from 'react';
+import styled from 'styled-components';
+import * as flexify from './flexify'
 
 interface ITableProps {
-  className: string
+  className?: string
 }
 
-const Table: React.FunctionComponent<ITableProps> = ({ className }) => {
+
+
+const TableComponent: React.FunctionComponent<ITableProps> = ({ className }) => {
+  const headers : any[] = [
+    {title : 'Bcode'},
+    {title : 'Nom de Test'},
+    {title : 'Mnemonic'},
+    {title : 'Departement'},
+    {title : 'Envoi'},
+    {title : 'Delai'},
+  ]
   return (
-    <table className="table table-striped table-hover table-bordered dataTable no-footer" id="sample_editable_1" role="grid" aria-describedby="sample_editable_1_info">
+    <TableStyled>
       <thead>
-        <tr role="row">
-          <th
-            className="sorting_desc"
-            tabIndex={0}
-            aria-controls="sample_editable_1"
-            rowSpan={1}
-            colSpan={1}
-            aria-label=" Username : activate to sort column ascending"
-            style={{ width: 172 }}
-            aria-sort="descending"> Username </th>
-          <th
-            className="sorting"
-            tabIndex={0}
-            aria-controls="sample_editable_1"
-            rowSpan={1}
-            colSpan={1}
-            aria-label=" Full Name : activate to sort column ascending"
-            style={{ width: 193 }}
-          
-          > Full Name </th>
-          <th
-              className="sorting"
-              tabIndex={0}
-              aria-controls="sample_editable_1"
-              rowSpan={1}
-              colSpan={1}
-              aria-label=" Points : activate to sort column ascending"
-              style={{ width: 121 }}
-
-          > Points </th>
-
-          <th
-            className="sorting"
-            tabIndex={0}
-            aria-controls="sample_editable_1"
-            rowSpan={1}
-            colSpan={1}
-            aria-label=" Notes : activate to sort column ascending"
-            style={{ width: 127 }}
-            
-          > Notes </th>
-
-          <th
-            className="sorting"
-            tabIndex={0}
-            aria-controls="sample_editable_1"
-            rowSpan={1}
-            colSpan={1}
-            aria-label=" Edit : activate to sort column ascending"
-            style={{ width: 90 }}
-            
-          > Edit </th>
-          
-          <th
-            className="sorting"
-            tabIndex={0}
-            aria-controls="sample_editable_1"
-            rowSpan={1}
-            colSpan={1}
-            aria-label=" Delete : activate to sort column ascending"
-            style={{ width: 124 }}>
-
-            Delete
-
-          </th>
-        </tr>
+        <TableRow >
+          {headers.map(head =><TableHeaderCell key={head.title}><input placeholder={head.title} style={{width : '100%', border: 'none'}}/></TableHeaderCell>)}
+        </TableRow>
       </thead>
 
 
 
       <tbody>
-        <tr role="row" className="odd">
-          <td className="sorting_1"> webriver </td>
-          <td > Antonio Sanches </td>
-          <td > 462 </td>
-          <td className="center"> new user </td>
-          <td>
-            <a className="edit" href="javascript:;"> Edit </a>
-          </td>
-          <td>
-            <a className="delete" href="javascript:;"> Delete </a>
-          </td>
-        </tr>
-        <tr 
-        role="row" 
-        className="odd"
-        >
-          <td className="sorting_1"><input type="text" className="form-control input-small" defaultValue /></td>
-          <td><input type="text" className="form-control input-small" defaultValue /></td>
-          <td><input type="text" className="form-control input-small" defaultValue /></td>
-          <td><input type="text" className="form-control input-small" defaultValue /></td>
-          <td><a className="edit" href>Save</a></td><td><a className="cancel" href>Cancel</a></td>
-        </tr>
+        <TableRow >
+          <TableBodyCell > webriver </TableBodyCell>
+          <TableBodyCell > Antonio Sanches </TableBodyCell>
+          <TableBodyCell > 462 </TableBodyCell>
+          <TableBodyCell > new user </TableBodyCell>
+          <TableBodyCell> <a > Edit </a> </TableBodyCell>
+          <TableBodyCell> <a > Delete </a> </TableBodyCell>
+        </TableRow>
+        
       </tbody>
-    </table>
+    </TableStyled>
 
   );
 };
 
-export default Table;
+export default TableComponent;
+
+
+const TableStyled = styled('table').attrs({})`
+
+  ${flexify.Parent()}
+
+  ${flexify.Column()}
+
+`
+
+const TableRow = styled('tr')`
+
+  ${flexify.Parent()}
+
+`
+const TableHeaderCell = styled('th')`
+
+  ${flexify.Box({grow : '1', shrink : '0', basis : ''})}
+
+  border: 1px solid #000000;
+
+` 
+const TableBodyCell = styled('td')`
+
+  ${flexify.Box({grow : '1', shrink : '0', basis : ''})}
+
+  border: 1px solid #e7ecf1;
+
+`

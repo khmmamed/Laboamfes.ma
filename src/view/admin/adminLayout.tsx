@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Header from '../website/Header';
+import Table from '../../components/react-tables/src'
 
 interface IAdminLayoutProps {
 }
@@ -9,7 +10,7 @@ export const AdminLayout: React.FunctionComponent<IAdminLayoutProps> = (props) =
       <div style={{display : 'flex'}}>
         <section><Header /></section>
         <div style={{display : 'flex', alignContent : 'space-between', marginTop: '250px', width: "100%"}}>
-            <section style={{flex : '0 0 250px'}}>
+            <section style={{flex : '0 0 20%'}}>
               <ul>
                 <li>Compte</li>
                 <li>Personelles</li>
@@ -18,8 +19,8 @@ export const AdminLayout: React.FunctionComponent<IAdminLayoutProps> = (props) =
                 <li>Rapport</li>
               </ul>
             </section>
-            <section >
-              editable dataTable
+            <section style={{flex : " 0 0 74%", padding : '0 20px 0 0'}}>
+              <Table />
             </section>
         </div>
       </div>
