@@ -5,12 +5,13 @@ import * as flexify from './flexify'
 interface ITableProps {
   Header: any[]
   Data : any
-  onChange : (e: any) => void
+  filterDataList : (e: any) => void
+  getInputValue : (e:any) => void
 }
 
 
 
-const TableComponent: React.FunctionComponent<ITableProps> = ({ Header, Data, onChange }) => {
+const TableComponent: React.FunctionComponent<ITableProps> = ({ Header, Data, filterDataList, getInputValue }) => {
 
   // const { catalogList } = Data;
 
@@ -30,7 +31,7 @@ const TableComponent: React.FunctionComponent<ITableProps> = ({ Header, Data, on
                     placeholder={head.title} 
                     name="testName"
                     style={{width : '100%', border: 'none'}}
-                    onChange={e=>onChange(e)}
+                    onChange={e=>filterDataList(e)}
                   />
                 </TableHeaderCell>
             )
@@ -62,7 +63,12 @@ const TableComponent: React.FunctionComponent<ITableProps> = ({ Header, Data, on
           
           <TableBodyCell width="10%" > {list.finance[0] ? list.finance[0].Bcode : "-"} </TableBodyCell>
           <TableBodyCell width="10%" > {list.finance[0] ? Math.floor(list.finance[0].Bcode * 1.34)  : "-"} </TableBodyCell>
-          <TableBodyCell width="10%" > <input style={{width : '100%', border: 'none'}}/> </TableBodyCell>
+          <TableBodyCell width="10%" > 
+            <input 
+              style={{width : '100%', border: 'none'}}
+              onChange={e=>getInputValue(e)}
+            /> 
+          </TableBodyCell>
           <TableBodyCell width="10%">  
             <select style={{width : '100%', border: 'none'}}>
               <option>non</option>
@@ -135,5 +141,15 @@ const TableBodyCell = styled('td')<{width? : string}>`
   }
 `
 const ConfirmCancelMessage = styled.span`
-  
+  width: 90px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
 `

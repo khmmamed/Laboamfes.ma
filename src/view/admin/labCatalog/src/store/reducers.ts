@@ -1,12 +1,12 @@
 import { combineReducers, Reducer } from 'redux';
 import { CatalogActions } from './actions';
 
-const initialState : CatalogState = {
+const initialState : CatalogState  = {
     catalogList : [],
     catalogListFetching : false
 }
 
-const catalogListReducer : Reducer = (state = initialState, action : any) => {
+export const catalogListReducer : Reducer = (state = initialState, action : any) => {
 
     switch (action.type) {
 
@@ -33,11 +33,3 @@ const catalogListReducer : Reducer = (state = initialState, action : any) => {
             };
     }
 }
-
-
-
-
-
-
-
-export default catalogListReducer;

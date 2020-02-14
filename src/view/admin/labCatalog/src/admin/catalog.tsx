@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { CatalogClass } from './labCatalog/src/controller/catalog';
-import { LabFesState } from '../../store';
-import Table from '../../components/react-tables/src'
+import { CatalogClass } from '../controller/catalog';
+import { LabFesState } from '../../../../../store';
+import Table from '../../../../../components/react-tables/src'
 import styled from 'styled-components';
 
 

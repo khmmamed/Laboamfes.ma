@@ -1,1 +1,3 @@
-export { default } from './store/sagas'
+export * from './store/reducers'
+
+export * from './store/sagas'

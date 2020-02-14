@@ -55,9 +55,17 @@ export class CatalogClass{
             }
         })
     
-    // set Catalog referring price 
-    setCatalogListPrice = (price : number) => this.price = price;
 
+    // method to validate user 
+    // entries compatibilte 
+    validateEntries = (data : any ) => {}
+
+    // set Catalog referring price 
+    setCatalogListPrice = (price : number) => {
+        
+        console.log(price.valueOf())
+      // this.price = price;
+    } 
     // set if Catalog test is 
     // referred to another lab  
     setCatalogListReferring = (referred : boolean) => this.referred = referred;

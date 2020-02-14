@@ -79,8 +79,6 @@ function* watchFetchCatalogTests(){
 
 }
 
-function* CatalogSaga(){
+export function* CatalogSaga(){
     yield all([fork(watchFetchCatalogTests)])
 }
-
-export default CatalogSaga

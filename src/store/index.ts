@@ -12,9 +12,9 @@ import { AuthReducer } from '../components/authentification-redux-lib/src';
 import { AuthSaga } from '../components/authentification-redux-lib/src';
 import { AuthState } from '../components/authentification-redux-lib/src/types';
 
-//==> Catalog
-import catalogReducer from '../view/admin/labCatalog/src/reducers'
-import CatalogSaga from '../view/admin/labCatalog/src';
+//==> Catalogs
+import {catalogListReducer} from '../view/admin/labCatalog/src'
+import {CatalogSaga} from '../view/admin/labCatalog/src';
 
 
 // States declaration
@@ -36,7 +36,7 @@ export const createRootReducer = (history: History) =>
   combineReducers({
     auth   : AuthReducer,
     slider : SliderReducer,
-    catalog: catalogReducer,
+    catalog: catalogListReducer,
     router : connectRouter(history)
   });
 

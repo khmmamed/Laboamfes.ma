@@ -37,7 +37,7 @@ interface CatalogOptions {
 // and have options for searchers 
 interface Catalog {
 
-    catalogList : CatalogList[]
+    catalogList? : CatalogList[]
 
     catalogOptionsGlobal : CatalogOptions
 }
