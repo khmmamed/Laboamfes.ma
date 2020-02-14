@@ -19,7 +19,7 @@ export const LabCatalog: React.FC<ICatalogProps> = ({dispatch, catalogList, cata
     <h2 onClick={e=> catalog.fetchExistingCatalog()}>Catalogue de Laboratoire Fes</h2>
 
     <SaveButton > Enrgistrer </SaveButton>
-    <SaveButton > Annuler </SaveButton>
+    <CancelButton > Annuler </CancelButton>
 
     {!catalogListFetching && catalogList.length <1 ? 
       catalog.fetchExistingCatalog() && <div>Loading...</div>
