@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Header from '../website/Header';
-import Table from '../../components/react-tables/src'
+import Catalog from './catalog';
+
 
 interface IAdminLayoutProps {
 }
@@ -8,7 +9,11 @@ interface IAdminLayoutProps {
 export const AdminLayout: React.FunctionComponent<IAdminLayoutProps> = (props) => {
   return(
       <div style={{display : 'flex'}}>
-        <section><Header /></section>
+        
+        <section>
+          <Header />
+        </section>
+
         <div style={{display : 'flex', alignContent : 'space-between', marginTop: '250px', width: "100%"}}>
             <section style={{flex : '0 0 20%'}}>
               <ul>
@@ -17,10 +22,13 @@ export const AdminLayout: React.FunctionComponent<IAdminLayoutProps> = (props) =
                 <li>Catalogue</li>
                 <li>Demandes</li>
                 <li>Rapport</li>
+                <li>Referer</li>
               </ul>
             </section>
-            <section style={{flex : " 0 0 74%", padding : '0 20px 0 0'}}>
-              <Table />
+            <section style={{ flex : " 0 0 74%", padding : '0 20px 0 0' }}>
+
+              <Catalog />
+              
             </section>
         </div>
       </div>

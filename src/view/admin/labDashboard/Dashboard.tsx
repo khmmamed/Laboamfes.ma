@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { ContainerWrapper } from '../../components/react-wrapper/src/ContainerWrapper';
+import { ContainerWrapper } from '../../../components/react-wrapper/src/ContainerWrapper';
 
 interface IAppProps {
 }

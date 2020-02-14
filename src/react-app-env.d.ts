@@ -1,6 +1,8 @@
 /* eslint-disable spaced-comment, @typescript-eslint/no-explicit-any */
 /// <reference types="react-scripts" />
 /// <reference types="./components/authentification-redux-lib" />
+/// <reference types="./view/admin/labCatalog" />
+
 
 // laboratoire fes 
 // personel

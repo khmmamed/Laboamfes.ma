@@ -3,40 +3,82 @@ import styled from 'styled-components';
 import * as flexify from './flexify'
 
 interface ITableProps {
-  className?: string
+  Header: any[]
+  Data : any
+  onChange : (e: any) => void
 }
 
 
 
-const TableComponent: React.FunctionComponent<ITableProps> = ({ className }) => {
-  const headers : any[] = [
-    {title : 'Bcode'},
-    {title : 'Nom de Test'},
-    {title : 'Mnemonic'},
-    {title : 'Departement'},
-    {title : 'Envoi'},
-    {title : 'Delai'},
-  ]
+const TableComponent: React.FunctionComponent<ITableProps> = ({ Header, Data, onChange }) => {
+
+  // const { catalogList } = Data;
+
+  // return <div>new Catalog data</div>
+
   return (
     <TableStyled>
       <thead>
         <TableRow >
-          {headers.map(head =><TableHeaderCell key={head.title}><input placeholder={head.title} style={{width : '100%', border: 'none'}}/></TableHeaderCell>)}
+          { Header.map(
+              head =>
+                <TableHeaderCell 
+                  key={head.title} 
+                  width={head.width}>
+
+                  <input 
+                    placeholder={head.title} 
+                    name="testName"
+                    style={{width : '100%', border: 'none'}}
+                    onChange={e=>onChange(e)}
+                  />
+                </TableHeaderCell>
+            )
+          }
         </TableRow>
       </thead>
 
+    
 
+    <tbody>
 
-      <tbody>
-        <TableRow >
-          <TableBodyCell > webriver </TableBodyCell>
-          <TableBodyCell > Antonio Sanches </TableBodyCell>
-          <TableBodyCell > 462 </TableBodyCell>
-          <TableBodyCell > new user </TableBodyCell>
-          <TableBodyCell> <a > Edit </a> </TableBodyCell>
-          <TableBodyCell> <a > Delete </a> </TableBodyCell>
+      {Data.length < 1 ? 
+      
+        <TableRow><TableBodyCell>Loading ...</TableBodyCell></TableRow>
+
+        :
+
+        Data.map((list : any)=>
+
+        <TableRow key={list.name.fr}>
+          
+
+            <TableBodyCell width="50%" >
+
+              {list.name.fr} 
+              
+            </TableBodyCell>   
+          
+          
+          <TableBodyCell width="10%" > {list.finance[0] ? list.finance[0].Bcode : "-"} </TableBodyCell>
+          <TableBodyCell width="10%" > {list.finance[0] ? Math.floor(list.finance[0].Bcode * 1.34)  : "-"} </TableBodyCell>
+          <TableBodyCell width="10%" > <input style={{width : '100%', border: 'none'}}/> </TableBodyCell>
+          <TableBodyCell width="10%">  
+            <select style={{width : '100%', border: 'none'}}>
+              <option>non</option>
+              <option>oui</option>
+            </select>  
+          </TableBodyCell>
+          <TableBodyCell width="10%">  
+            <input style={{width : '30%', border: '1px solid #000000'}} /> 
+            <select style={{width : '70%', border: 'none'}}>
+              <option>Heures</option>
+              <option>Jours</option>
+              <option>Mois</option>
+            </select> 
+          </TableBodyCell>
         </TableRow>
-        
+        )}
       </tbody>
     </TableStyled>
 
@@ -59,17 +101,39 @@ const TableRow = styled('tr')`
   ${flexify.Parent()}
 
 `
-const TableHeaderCell = styled('th')`
-
-  ${flexify.Box({grow : '1', shrink : '0', basis : ''})}
+const TableHeaderCell = styled('th')<{width? : string}>`
 
   border: 1px solid #000000;
 
-` 
-const TableBodyCell = styled('td')`
+  ${props => 
+      
+      props.width ? 
 
-  ${flexify.Box({grow : '1', shrink : '0', basis : ''})}
+      flexify.Box({grow : '0', shrink : '0', basis : props.width})
+
+      :
+
+      flexify.Box({grow : '1', shrink : '0', basis : ''})
+
+  }
+
+` 
+const TableBodyCell = styled('td')<{width? : string}>`
 
   border: 1px solid #e7ecf1;
 
+  ${props => 
+      
+    props.width ? 
+
+    flexify.Box({grow : '0', shrink : '0', basis : props.width})
+
+    :
+
+    flexify.Box({grow : '1', shrink : '0', basis : ''})
+
+  }
+`
+const ConfirmCancelMessage = styled.span`
+  
 `

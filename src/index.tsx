@@ -11,6 +11,8 @@ const initialState = window.INITIAL_REDUX_STATE;
 
 export const store = configureStore(history, initialState);
 
+console.log(store.getState())
+
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(<Main store={store} history={history} />, rootElement);
