@@ -1,0 +1,9 @@
+[submodule "src/labOrders-ittyni"]
+	path = src/labOrders-ittyni
+	url = git@github.com:Mkhmalech/labOrders-ittyni.git
+[submodule "src/components/react-flexify"]
+	path = src/components/react-flexify
+	url = git@github.com:Mkhmalech/react-flexify.git
+[submodule "src/components/react-modals"]
+	path = src/components/react-modals
+	url = https://github.com/Mkhmalech/react-modals.git

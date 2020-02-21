@@ -90,3 +90,9 @@ interface Address {}
 interface Window {
   INITIAL_REDUX_STATE: any
 }
+
+/*************************
+***** Global Functions ***
+**************************/
+
+

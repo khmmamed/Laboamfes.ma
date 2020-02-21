@@ -43,11 +43,13 @@ export const createRootReducer = (history: History) =>
 export function* rootSaga() {
   yield all([
     
-     //Auth
+    //  Auth
      fork(AuthSaga),
 
-     //Catalog
+    //  Catalog
      fork(CatalogSaga)
+
+    //  Orders
 
   ]);
 }

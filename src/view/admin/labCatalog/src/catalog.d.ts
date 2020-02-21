@@ -1,23 +1,34 @@
 type CatalogListTestId = string
 type CatalogListTestReported = number
 type CatalogListTestPrice = number
-type CatalogListTestReferred = boolean
+type CatalogListTestReferred = 'oui' | 'non'
 type CatalogListTestOptionMaterials = boolean
 type CatalogListTestOptionTransport = boolean
 type CatalogListTestOptionRemarks = string
 type CatalogListTestOptionPhlebotomist = boolean
 
 // function types
-type convertReportedToMinutes = (
+const convertReportedToMinutes = (
     repoterted : number, 
     reportedUnit : string
-) => number 
+) : number =>  
+(
+    reportedUnit === 'Mois' ? 
+        (repoterted * 24 * 30)
+        :
+        (reportedUnit === 'Jours' ?
+          (repoterted * 24)
+          :
+          repoterted
+        )
+)
 
 interface CatalogList {
-    testId : string 
-    testReported : number
-    testPrice : number
-    testReferred : boolean
+    testName?: string
+    testId : CatalogListTestId 
+    testReported : CatalogListTestReported
+    testPrice : CatalogListTestPrice
+    testReferred : CatalogListTestReferred
     testOption? : CatalogOptions 
 }
 
@@ -46,4 +57,6 @@ interface Catalog {
 interface CatalogState {
     catalogList : any[]
     catalogListFetching : boolean
+    catalogUpdateConfirmMsg? : string
+    updatedCatalog? : CatalogList[]
 }

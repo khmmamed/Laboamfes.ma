@@ -7,15 +7,26 @@ interface ITableProps {
   Data : any
   filterDataList : (e: any) => void
   getInputValue : (e:any) => void
+  handleReferredValue : (e:any) => void
+  onBlurTest : () => void
 }
 
 
 
-const TableComponent: React.FunctionComponent<ITableProps> = ({ Header, Data, filterDataList, getInputValue }) => {
+const TableComponent: React.FunctionComponent<ITableProps> = 
+  ({ 
+    Header, 
+    Data, 
+    filterDataList, 
+    getInputValue,
+    handleReferredValue
+  }) => {
 
   // const { catalogList } = Data;
 
   // return <div>new Catalog data</div>
+
+  // console.log(Data);
 
   return (
     <TableStyled>
@@ -51,7 +62,7 @@ const TableComponent: React.FunctionComponent<ITableProps> = ({ Header, Data, fi
 
         Data.map((list : any)=>
 
-        <TableRow key={list.name.fr}>
+        <TableRow key={list.id} datatype={list.id} >
           
 
             <TableBodyCell width="50%" >
@@ -66,18 +77,28 @@ const TableComponent: React.FunctionComponent<ITableProps> = ({ Header, Data, fi
           <TableBodyCell width="10%" > 
             <input 
               style={{width : '100%', border: 'none'}}
-              onChange={e=>getInputValue(e)}
+              name={list.name.fr}
+              onBlur={e=>getInputValue(e)}
             /> 
           </TableBodyCell>
           <TableBodyCell width="10%">  
-            <select style={{width : '100%', border: 'none'}}>
-              <option>non</option>
+            <select id="referredPrice"
+              style={{width : '100%', border: 'none'}} 
+              onChange={e=>handleReferredValue(e)}
+            >
               <option>oui</option>
+              <option>non</option>
             </select>  
           </TableBodyCell>
           <TableBodyCell width="10%">  
-            <input style={{width : '30%', border: '1px solid #000000'}} /> 
-            <select style={{width : '70%', border: 'none'}}>
+            <input 
+              style={{width : '30%', border: '1px solid #000000'}} 
+              onChange={e=>handleReferredValue(e)}
+            /> 
+            <select id="reportedUnit"
+              style={{width : '70%', border: 'none'}}
+              onChange={e=>handleReferredValue(e)}
+            >
               <option>Heures</option>
               <option>Jours</option>
               <option>Mois</option>
@@ -94,7 +115,7 @@ const TableComponent: React.FunctionComponent<ITableProps> = ({ Header, Data, fi
 export default TableComponent;
 
 
-const TableStyled = styled('table').attrs({})`
+export const TableStyled = styled('table').attrs({})`
 
   ${flexify.Parent()}
 
@@ -102,12 +123,12 @@ const TableStyled = styled('table').attrs({})`
 
 `
 
-const TableRow = styled('tr')`
+export const TableRow = styled('tr')`
 
   ${flexify.Parent()}
 
 `
-const TableHeaderCell = styled('th')<{width? : string}>`
+export const TableHeaderCell = styled('th')<{width? : string}>`
 
   border: 1px solid #000000;
 
@@ -124,7 +145,7 @@ const TableHeaderCell = styled('th')<{width? : string}>`
   }
 
 ` 
-const TableBodyCell = styled('td')<{width? : string}>`
+export const TableBodyCell = styled('td')<{width? : string}>`
 
   border: 1px solid #e7ecf1;
 

@@ -27,6 +27,19 @@ export const catalogListReducer : Reducer = (state = initialState, action : any)
             return {
                 ...state, catalogList : [...action.CatalogList]
             }
+        case CatalogActions.CATALOG_LIST_UPDATING_BY_USER : 
+            return {
+                ...state, 
+                catalogUpdateConfirmMsg : "Voulez Vous Vraiment Continuer",
+                updatedCatalog : [...action.payload]
+            }
+        
+        case CatalogActions.CATALOG_LIST_UPDATING_MODAL_CLOSE : 
+            return {
+                ...state, 
+                catalogUpdateConfirmMsg : undefined
+            }
+        
         default:
             return {
                 ...state
