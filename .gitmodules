@@ -7,3 +7,6 @@
 [submodule "src/components/react-modals"]
 	path = src/components/react-modals
 	url = https://github.com/Mkhmalech/react-modals.git
+[submodule "src/components/react-tables"]
+	path = src/components/react-tables
+	url = https://github.com/Mkhmalech/react-tables
